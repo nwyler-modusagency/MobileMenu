@@ -1,0 +1,123 @@
+/* reset styles */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0; padding: 0;  border: 0; outline: 0; font-size: 100%;
+    vertical-align: baseline; background: transparent;
+}
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; }
+:focus { outline: 0; }
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+/* for clearing any floats <br class=&quot;clearfloat&quot; /> */
+.clearfloat {
+    clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+
+#mobileMenu{
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+#mobileMenuButton{
+  display: block;
+  background: blue;
+  font-size: 14px;
+  color: white;
+  padding: 20px;
+}
+.page{
+  width: 100%;
+  position: absolute;
+  left: 0;
+  background: #f2f2f2;
+}
+.page.closeStatic{
+  padding-top: 50px;
+}
+.page.shadow{
+  -webkit-box-shadow: 0px 0px 14px 0px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow:    0px 0px 14px 0px rgba(50, 50, 50, 0.5);
+  box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.5);
+}
+
+.title{
+  margin: 40px 0 5px 15%;
+  font-size: 22px;
+  color: #696969;
+}
+
+.item{
+  display: block;
+  position: relative;
+  color: #0397f9;
+  font-size: 18px;
+  padding-top: 25px;
+  width: 70%;
+  margin-left: 15%;
+}
+
+.item.more:after{
+  content: "";
+  width: 16px;
+  height: 17px;
+  background-image: url("../images/icons.png");
+  background-position: right;
+  position: relative;;
+  display: inline-block;
+  float: right;
+}
+
+.button.back{
+  display: block;
+    color: #0397f9;
+    font-size: 14px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border: 2px solid #0397f9;
+    border-radius: 30px;
+    font-size: 20px;
+}
+.button.close{
+  background-image: url("../images/icons.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  margin: 20px 20px 0 20px;
+  width: 24px;
+  height: 30px;
+}
+.button.close.static{
+  display: none;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.mobileMenuOpener{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 20px;
+}
+.line{
+  width: inherit;
+  border-top: 4px solid orange;
+  margin-bottom: 4px;
+}
