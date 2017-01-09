@@ -2,12 +2,14 @@
 **jQuery plugin to make a mobile menu as easy as drinking a glass of water.**
 
 ## Usage
-  CSS: <link rel="stylesheet" href="css/styles.css">
-----------
-  JS:
+  
+CSS: Link the stylsheet in the html => css/styles.css
+
+JS:
     $(fuction){
-	    $('#mobileMenu').mobileMenu( structure, options );
-	});
+	$('#mobileMenu').mobileMenu( structure, options );
+});
+
 ----------
 
 ## Structure:
@@ -28,9 +30,9 @@
  - Section: Object
 	 - Title: String
 	 - Items: Array
-		 - Item: Object
-				 - name: String
-				 - section ⇒ [ Is the same structure as its parent ]
+		- Item: Object
+		  - name: String
+		  - section ⇒ [ Is the same structure as its parent ]
 
 
 ----------
