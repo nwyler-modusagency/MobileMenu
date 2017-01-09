@@ -3,15 +3,19 @@
 
 ## Usage
   
-CSS: Link the stylsheet in the html => css/styles.css
+CSS: 
+```
+<link rel="stylesheet" href="css/styles.css">
+```
 
 JS:
-    $(fuction){
+```javascript
+$(fuction){
 	$('#mobileMenu').mobileMenu( structure, options );
 });
+```
 
 ----------
-
 ## Structure:
     {
 		section:(*) {
