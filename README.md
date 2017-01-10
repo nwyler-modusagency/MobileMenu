@@ -3,17 +3,28 @@
 
 ## Usage
   
-CSS: 
+###CSS: 
 ```
 <link rel="stylesheet" href="css/styles.css">
 ```
 
-JS:
+###JS:
+
+include:
+```javascript
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/mobileMenu.min.js"></script>
+```
+usage:
 ```javascript
 $(fuction){
 	$('#mobileMenu').mobileMenu( structure, options );
 });
 ```
+>
+> Open **index.html** to run a working Demo.
+>
 
 ----------
 ## Structure:
