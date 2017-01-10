@@ -23,7 +23,7 @@ $(fuction){
 			items: [
 				{
 					name: 'home',
-					section:(*) [...]
+					section:(*) {...}
 				}
 			]
 		}
