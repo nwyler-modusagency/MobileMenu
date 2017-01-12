@@ -94,6 +94,9 @@ table { border-collapse: collapse; border-spacing: 0; }
     border-radius: 30px;
     font-size: 20px;
 }
+.button.back::before{
+  content: '< ';
+}
 .button.close{
   background-image: url("../images/icons.png");
   background-position: left;

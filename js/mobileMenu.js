@@ -13,12 +13,12 @@
         easing: 'easeOutSine'
       },
       closeAll: true,
-      openFrom: 'left',
+      mainOpenFrom: 'left',
       shadow: true,
       opener: '.mobileMenuOpener',
       closeStatic: true
     }, o );
-
+    var subOpenFrom = options.subOpenFrom || options.mainOpenFrom || 'left';
     // init menu creation
     createmenuPage(structure.section);
     initOpenButton();
@@ -71,14 +71,11 @@
       });
 
       if (!sub) {
-        if (settings.openFrom === 'top') {
-          self.css('top', getDeviceSize().height * -1);
-        } else {
-          self.css('left', getDeviceSize().width * -1);
-        }
+        var direction = getDirection(settings.mainOpenFrom, false);
+        self.css(direction);
       }
-    }
 
+    }
     function createOpenButton(){
       var openBtn = templates().open;
 
@@ -96,7 +93,7 @@
       if(settings.opener === '.mobileMenuOpener') createOpenButton();
 
       var a = settings.animation;
-      var direction = settings.openFrom === 'top' ? { top: 0 } : { left: 0 };
+      var direction = getDirection(settings.mainOpenFrom, true);
       $(settings.opener).on('click', function(e){
         self.css('display', 'inline-block');
         $(this).animate({ opacity: 0 }, a.speed, function(){
@@ -123,7 +120,8 @@
     function addPage(sub) {
       var page = templates().page;
       page.css( 'height', getDeviceSize().height );
-      if(sub) page.css('left', getDeviceSize().width );
+      if(sub) page.css( getDirection(subOpenFrom) );
+      // if(sub) page.css('left', getDeviceSize().width );
 
       self.append(page); // add page to DOM
 
@@ -133,15 +131,14 @@
     function animatePage(sub, page) {
       if(!sub) return;
       var a = settings.animation;
-      page.animate({
-        left: 0,
-      }, a.speed, a.easing);
+      var direction = getDirection(subOpenFrom, true);
+      page.animate(direction, a.speed, a.easing);
     }
 
     function createBackButton(name, page) {
       var btn = templates().btn;
 
-      btn.append("< " + name);
+      btn.append('<span>' + name + '</span>');
       btn.on('click', function(e){
         closePage(page);
       });
@@ -151,10 +148,8 @@
 
     function closePage(page){
       var a = settings.animation;
-
-      page.animate({
-        left: getDeviceSize().width,
-      }, a.speed, a.easing, function() {
+      var direction = getDirection(subOpenFrom);
+      page.animate(direction, a.speed, a.easing, function() {
         page.remove();
       });
     }
@@ -162,28 +157,44 @@
     function closeButton(page) {
       var btn = templates().close;
       var a = settings.animation;
+      var direction = getDirection(settings.mainOpenFrom);
 
       btn.on('click', function(e){
-        /* close all submenus when close */
-        if (settings.closeAll) {
-          for (var i = 1; i < subOpen; i++) {
-            var findPages = $('.page').not($('.page').eq(0));
-            closePage(findPages);
-          }
-        }
+
         btn.animate({ opacity: 0 }, a.speed*0.2, function(){
           btn.css('display', 'none');
         });
-        self.animate({
-          left: getDeviceSize().width * -1,
-        }, a.speed, a.easing, function(){
+        self.animate(direction, a.speed, a.easing, function(){
           self.css('display', 'none');
           $(settings.opener).css('display', 'block');
           $(settings.opener).animate({ opacity: 1 }, a.speed );
+
+          /* close all submenus when close */
+          if (settings.closeAll) {
+            for (var i = 1; i < subOpen; i++) {
+              var findPages = $('.page').not($('.page').eq(0));
+              closePage(findPages);
+            }
+          }
         });
       });
       closeAdded++;
       return btn;
+    }
+
+    function getDirection(set, opening){
+      var direction = {};
+      switch (set) {
+        case 'top':
+          direction = { top: opening ? 0 : getDeviceSize().height * -1 };
+          break;
+        case 'right':
+          direction = { left: opening ? 0 : getDeviceSize().width * 2 }
+          break;
+        case 'left':
+          direction = { left: opening ? 0 : getDeviceSize().width * -1 }
+      }
+      return direction;
     }
 
     function getDeviceSize() {

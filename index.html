@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1">
     <title>menu</title>
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/toggle.css">
+    <link id="styles" rel="stylesheet" href="css/intranet.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.easing.1.3.js"></script>
     <script src="js/mobileMenu.js"></script>
   </head>
   <body>
     <div id="mobileMenuWrapper">
-      <div id="mobileMenu"></div>
+      <div id="mobileMenu">
+        <div class="stylesToggle"><span class="selected">Intranet</span></div>
+      </div>
     </div>
     <div style="height:400px; display:flex; justify-content:center; align-items:center;">
       <img src="images/logoE.png" alt="">
@@ -148,7 +151,23 @@
       };
 
       $(function() {
-        $('#mobileMenu').mobileMenu(structure);
+        $('#mobileMenu').mobileMenu(structure, {closeStatic:false, closeAll:false});
+
+        var styles = ['intranet', 'web'];
+        var currentCss = styles[0];
+
+        function swapStyleSheet(sheet) {
+            var ss = 'css/' + sheet + '.css';
+            document.getElementById("styles").setAttribute("href", ss);
+        };
+
+        $('span', '.stylesToggle').on('click', function(e){
+          $('span', '.stylesToggle').removeClass('selected');
+          currentCss = styles.indexOf(currentCss) == 0 ? styles[1] : styles[0];
+          $(this).html(currentCss);
+          swapStyleSheet(currentCss);
+        });
+
       });
     </script>
   </body>

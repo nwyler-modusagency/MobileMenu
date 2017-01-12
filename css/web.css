@@ -1,0 +1,139 @@
+/* reset styles */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0; padding: 0;  border: 0; outline: 0; font-size: 100%;
+    vertical-align: baseline; background: transparent;
+}
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; }
+:focus { outline: 0; }
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+/* for clearing any floats <br class=&quot;clearfloat&quot; /> */
+.clearfloat {
+    clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+
+#mobileMenu{
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 200px;
+}
+#mobileMenuButton{
+  display: block;
+  background: blue;
+  font-size: 14px;
+  color: white;
+  padding: 20px;
+}
+.page{
+  width: 100%;
+  position: absolute;
+  left: 0;
+  background: #FFF;
+}
+.page{
+  padding-top: 60px;
+}
+.page.shadow{
+  -webkit-box-shadow: 0px 0px 14px 0px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow:    0px 0px 14px 0px rgba(50, 50, 50, 0.5);
+  box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.5);
+}
+
+.title{
+  margin: 25px 30px 5px 30px;
+  font-size: 22px;
+  color: #0c5aad;
+  border-top: 1px solid #ccc;
+  padding-top: 25px;
+  text-transform: uppercase;
+}
+
+.item{
+  display: block;
+  position: relative;
+  color: #0c5aad;
+  font-size: 18px;
+  padding-top: 25px;
+  margin: 0 30px;
+}
+
+.item.more:after{
+  content: ">>";
+  width: 16px;
+  height: 17px;
+  background-position: right;
+  position: relative;;
+  display: inline-block;
+  float: right;
+}
+
+.button.back{
+  color: #0c5aad;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  border: 2px solid #0c5aad;
+  font-size: 20px;
+  text-transform: uppercase;
+  width: 70%;
+  min-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button.back span{
+  padding: 10px 20px 10px 0;
+  text-align: center;
+  flex: 60;
+}
+.button.back::before{
+  content: '<< ';
+  padding-left: 10px;
+  position: relative;
+  flex: 2;
+}
+.button.close{
+  background-image: url("../images/icons_web.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  margin: 20px 20px 0 20px;
+  width: 32px;
+  height: 33px;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+.button.close.static{
+  display: none;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+
+.mobileMenuOpener{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 20px;
+}
+.line{
+  width: inherit;
+  border-top: 4px solid orange;
+  margin-bottom: 4px;
+}

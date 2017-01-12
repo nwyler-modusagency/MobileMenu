@@ -1,0 +1,17 @@
+.stylesToggle{
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+.stylesToggle span{
+  float: left;
+  margin-left: 10px;
+  padding:5px 10px;
+  background: green;
+  color: white;
+  text-transform: uppercase;
+}

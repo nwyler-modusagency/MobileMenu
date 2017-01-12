@@ -2,8 +2,8 @@
 **jQuery plugin to make a mobile menu as easy as drinking a glass of water.**
 
 ## Usage
-    
-###CSS: 
+
+###CSS:
 ```
 <link rel="stylesheet" href="css/styles.css">
 ```
@@ -28,7 +28,7 @@ $(fuction){
 });
 ```
 >
-> Open **index.html** to run a working Demo.
+> Open **index.html** to run a working Demo.s
 >
 
 ----------
@@ -65,7 +65,8 @@ $(fuction){
 		    easing: 'easeOutSine'
 	    },
 	    closeAll: true,
-	    openFrom: 'left',
+	    mainOpenFrom: 'left',
+      subOpenFrom: 'left',
 	    shadow: true,
 	    opener: '.mobileMenuOpener',
 	    closeStatic: false
@@ -75,7 +76,8 @@ $(fuction){
 	 - speed: Number
 	 - easing: String ( jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/ )
  - closeAll: Bool => [ close all the submenus when close ]
- - openFrom: String('left( * )', 'right') => ( * )default
+ - mainOpenFrom: String('left( default )', 'right', 'top')
+ - subOpenFrom: String('left', 'right', 'top') default=> if it is not defined it would take the mainOpenFrom value, if mainOpenFrom is not defined 'left';
  - shadow: Bool => [ Add shadow to section page ]
  - opener: String( jQuery.class or jQuery.id ) e.g. => $('#menu')
  - closeStatic: Bool [ it defines if the menu would have one static close or one for each section ]
