@@ -66,7 +66,7 @@ $(fuction){
 	    },
 	    closeAll: true,
 	    mainOpenFrom: 'left',
-      subOpenFrom: 'left',
+	    subOpenFrom: 'left',
 	    shadow: true,
 	    opener: '.mobileMenuOpener',
 	    closeStatic: false
