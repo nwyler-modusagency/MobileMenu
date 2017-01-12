@@ -2,12 +2,17 @@
 **jQuery plugin to make a mobile menu as easy as drinking a glass of water.**
 
 ## Usage
-  
+    
 ###CSS: 
 ```
 <link rel="stylesheet" href="css/styles.css">
 ```
-
+###Html
+```
+<div id="mobileMenuWrapper">
+	<div id="mobileMenu"></div>
+</div>
+```
 ###JS:
 
 include:
